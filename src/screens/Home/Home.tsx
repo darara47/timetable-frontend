@@ -5,8 +5,8 @@ function HomeScreen({ navigation }: { navigation: any }) {
     <View style={styles.container}>
       <Text>Home Screen</Text>
       <Button
-        title="Go to Timetable"
-        onPress={() => navigation.navigate('Timetable')}
+        title="Go to Selector"
+        onPress={() => navigation.navigate('Selector')}
       />
     </View>
   );
