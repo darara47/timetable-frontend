@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
+import { ReactElement } from 'react';
 import { View, Text } from 'react-native';
 
-function TimetableScreen({ navigation }: { navigation: any }) {
-
+const TimetableScreen = (): ReactElement => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Timetable Screen</Text>
