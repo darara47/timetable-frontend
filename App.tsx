@@ -5,8 +5,8 @@ import SelectorScreen from './src/screens/Selector/Selector';
 import TimetableScreen from './src/screens/Timetable/Timetable';
 import { Provider as PaperProvider } from 'react-native-paper';
 import NavigationBar from './src/components/NavigationBar/NavigationBar';
-import { StackNavigation, StackParamList } from './src/types/StackParamList';
-import { Screens } from './src/screens/screens.enum';
+import { StackNavigation, StackParamList } from './src/types/stackParamList';
+import { Screens } from './src/types/screens.enum';
 
 const Stack = createNativeStackNavigator<StackParamList>();
 

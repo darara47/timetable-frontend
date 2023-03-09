@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import { Appbar } from 'react-native-paper';
-import { Screens } from '../../screens/screens.enum';
-import { StackNavigation } from '../../types/StackParamList';
+import { Screens } from '../../types/screens.enum';
+import { StackNavigation } from '../../types/stackParamList';
 
 type NavigationBarProps = {
   isBack: boolean,

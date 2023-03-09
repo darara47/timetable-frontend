@@ -1,7 +1,9 @@
 import { ReactElement } from 'react';
-import { StyleSheet, Button, View, Text } from 'react-native';
-import { StackNavigation } from '../../types/StackParamList';
-import { Screens } from '../screens.enum';
+import { StyleSheet, View } from 'react-native';
+import { StackNavigation } from '../../types/stackParamList';
+import { Screens } from '../../types/screens.enum';
+import { Button, Text } from 'react-native-paper';
+import { SelectorTypes } from '../../types/selectors.enum';
 
 type HomeScreenProps = {
   navigation: StackNavigation,
@@ -12,11 +14,17 @@ const HomeScreen = (homeScreenProps: HomeScreenProps): ReactElement => {
 
   return (
     <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Button
-        title="Go to Selector"
-        onPress={() => navigation.navigate(Screens.Selector)}
-      />
+      <Text variant="displayLarge">Tygiel</Text>
+      <Text variant="headlineMedium">Plan lekcji</Text>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SelectorTypes.Classes })}>
+        Klasy
+      </Button>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SelectorTypes.Teachers })}>
+        Nauczyciele
+      </Button>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SelectorTypes.Classrooms })}>
+        Sale
+      </Button>
     </View>
   );
 }
@@ -26,8 +34,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    padding: 50,
+  }
 });
 
 export default HomeScreen;
