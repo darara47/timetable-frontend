@@ -1,11 +1,11 @@
+import { Sections } from "../types/sections.types";
 import { request } from "../utils/api";
 
-export const getAll = async (): Promise<any> => {
+export const sectionsGetAll = async (): Promise<Sections> => {
   try {
-    const response = await request<any>(`/sections`, {
+    const response = await request<Sections>(`/sections`, {
       method: "GET",
     });
-
     return response;
   } catch (error: unknown) {
     throw error;

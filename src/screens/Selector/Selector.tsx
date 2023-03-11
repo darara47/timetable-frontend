@@ -1,16 +1,14 @@
 import { ReactElement } from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import { StackNavigation } from '../../types/stackParamList';
-import { Screens } from '../../types/screens.enum';
-import { SectionsTypes } from '../../types/selectors.enum';
-import { List } from 'react-native-paper';
 import ClassesList from '../../components/ClassesList/ClassesList';
+import { SectionTypes } from '../../types/sections.types';
 
 type SelectorScreenProps = {
   navigation: StackNavigation,
   route: {
     params: {
-      type: SectionsTypes,
+      type: SectionTypes,
     },
   },
 }
@@ -20,7 +18,7 @@ const SelectorScreen = (selectorScreenProps: SelectorScreenProps): ReactElement 
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      {type === SectionsTypes.Classes &&
+      {type === SectionTypes.class &&
         <ClassesList navigation={navigation} />}
     </View>
   );
