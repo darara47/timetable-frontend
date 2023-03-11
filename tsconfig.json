@@ -8,5 +8,11 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src", "./**/*", "./*", ".eslintrc.js"]
+  "include": [
+    "src",
+    "./**/*",
+    "./*",
+    ".eslintrc.js"
+  ],
+  "extends": "expo/tsconfig.base"
 }

@@ -5,7 +5,8 @@ module.exports = {
     "standard-with-typescript", // Installed in step 2
     "eslint-config-prettier", // Installed in step 3
   ],
-  parser: "@typescript-eslint/parser", // Installed in step 2
+  // parser: "@typescript-eslint/parser", // Installed in step 2
+  parser: "babel-eslint",
   plugins: [
     "@typescript-eslint", // Installed in step 2
     "react", // Installed in step 1
@@ -16,6 +17,7 @@ module.exports = {
       jsx: true,
     },
     project: "./tsconfig.json", // Required for Standard plugin
+    sourceType: "module",
   },
   env: {
     "react-native/react-native": true,
