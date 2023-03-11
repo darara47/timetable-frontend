@@ -1,9 +1,12 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { StackNavigation } from '../../types/stackParamList';
 import { Screens } from '../../types/screens.enum';
 import { Button, Text } from 'react-native-paper';
-import { SectionsTypes } from '../../types/selectors.enum';
+import { useAppDispatch } from '../../hooks/useApp';
+import { sectionsGetAll } from '../../services/sectionsService';
+import { set } from '../Selector/selectorSlice';
+import { SectionTypes } from '../../types/sections.types';
 
 type HomeScreenProps = {
   navigation: StackNavigation,
@@ -11,18 +14,27 @@ type HomeScreenProps = {
 
 const HomeScreen = (homeScreenProps: HomeScreenProps): ReactElement => {
   const { navigation } = homeScreenProps;
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const getSections = async () => {
+      const sections = await sectionsGetAll();
+      dispatch(set(sections));
+    }
+    getSections();
+  }, []);
 
   return (
     <View style={styles.container}>
       <Text variant="displayLarge">Tygiel</Text>
       <Text variant="headlineMedium">Plan lekcji</Text>
-      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionsTypes.Classes })}>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionTypes.class })}>
         Klasy
       </Button>
-      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionsTypes.Teachers })}>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionTypes.teacher })}>
         Nauczyciele
       </Button>
-      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionsTypes.Classrooms })}>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionTypes.classroom })}>
         Sale
       </Button>
     </View>
