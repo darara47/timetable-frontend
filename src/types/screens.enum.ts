@@ -1,5 +1,5 @@
 export enum Screens {
   Home = "Home",
-  Selector = "Selector",
+  Sections = "Sections",
   Timetable = "Timetable",
 }

@@ -5,7 +5,7 @@ import { Screens } from '../../types/screens.enum';
 import { Button, Text } from 'react-native-paper';
 import { useAppDispatch } from '../../hooks/useApp';
 import { sectionsGetAll } from '../../services/sectionsService';
-import { set } from '../Selector/selectorSlice';
+import { set } from '../Section/sectionsSlice';
 import { SectionTypes } from '../../types/sections.types';
 
 type HomeScreenProps = {
@@ -28,13 +28,13 @@ const HomeScreen = (homeScreenProps: HomeScreenProps): ReactElement => {
     <View style={styles.container}>
       <Text variant="displayLarge">Tygiel</Text>
       <Text variant="headlineMedium">Plan lekcji</Text>
-      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionTypes.class })}>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Sections, { type: SectionTypes.class })}>
         Klasy
       </Button>
-      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionTypes.teacher })}>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Sections, { type: SectionTypes.teacher })}>
         Nauczyciele
       </Button>
-      <Button mode="contained" onPress={() => navigation.navigate(Screens.Selector, { type: SectionTypes.classroom })}>
+      <Button mode="contained" onPress={() => navigation.navigate(Screens.Sections, { type: SectionTypes.classroom })}>
         Sale
       </Button>
     </View>
