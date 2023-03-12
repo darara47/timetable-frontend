@@ -1,9 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { ReactElement } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 import { List } from "react-native-paper";
 import { useAppSelector } from '../../hooks/useApp';
-import { selectSectionsByType } from '../../screens/Selector/selectorSlice';
+import { selectSectionsByType } from '../../screens/Section/sectionsSlice';
 import { Screens } from "../../types/screens.enum";
-import { SectionTypes } from '../../types/sections.types';
+import { SectionTypes, SectionYears } from '../../types/sections.types';
 import { StackNavigation } from '../../types/stackParamList';
 
 type ClassesListProps = {
@@ -12,49 +13,37 @@ type ClassesListProps = {
 
 const ClassesList = (classesListProps: ClassesListProps) => {
   const { navigation } = classesListProps;
-  const classes = useAppSelector(state => selectSectionsByType(state, SectionTypes.class))
+  const classes = useAppSelector(state => selectSectionsByType(state, SectionTypes.class));
+
+  const generateClassesListByYear = (year: SectionYears): ReactElement[] => (
+    classes.filter(_class => _class.year === year).map(_class => (
+      <List.Item title={_class.name}
+        onPress={() => navigation.navigate(Screens.Timetable, { id: _class.id })}
+        key={_class.id} />
+    ))
+  );
 
   return (
     <List.Section style={styles.listSection} title='Wybierz klasę'>
       <List.Accordion title="Pierwsza">
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
+        <ScrollView style={styles.scrollView}>
+          {generateClassesListByYear(SectionYears.first)}
+        </ScrollView>
       </List.Accordion>
       <List.Accordion title="Druga">
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
+        <ScrollView style={styles.scrollView}>
+          {generateClassesListByYear(SectionYears.second)}
+        </ScrollView>
       </List.Accordion>
       <List.Accordion title="Trzecia">
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
+        <ScrollView style={styles.scrollView}>
+          {generateClassesListByYear(SectionYears.third)}
+        </ScrollView>
       </List.Accordion>
       <List.Accordion title="Czwarta">
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="First item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
-        <List.Item title="Second item"
-          onPress={() => navigation.navigate(Screens.Timetable)} />
+        <ScrollView style={styles.scrollView}>
+          {generateClassesListByYear(SectionYears.fourth)}
+        </ScrollView>
       </List.Accordion>
     </List.Section>
   )
@@ -62,8 +51,11 @@ const ClassesList = (classesListProps: ClassesListProps) => {
 
 const styles = StyleSheet.create({
   listSection: {
-    width: 300,
-  }
+    alignSelf: 'stretch',
+  },
+  scrollView: {
+    maxHeight: 308,
+  },
 });
 
 export default ClassesList;

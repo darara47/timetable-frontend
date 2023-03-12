@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackHeaderProps } from '@react-navigation/native-stack';
 import { Provider } from 'react-redux'
 import HomeScreen from './src/screens/Home/Home';
-import SelectorScreen from './src/screens/Selector/Selector';
+import SectionsScreen from './src/screens/Section/Section';
 import TimetableScreen from './src/screens/Timetable/Timetable';
 import { Provider as PaperProvider } from 'react-native-paper';
 import NavigationBar from './src/components/NavigationBar/NavigationBar';
@@ -22,7 +22,7 @@ function App() {
           }}>
             <Stack.Screen name={Screens.Home} component={HomeScreen}
               options={{ headerShown: false }} />
-            <Stack.Screen name={Screens.Selector} component={SelectorScreen} />
+            <Stack.Screen name={Screens.Sections} component={SectionsScreen} />
             <Stack.Screen name={Screens.Timetable} component={TimetableScreen} />
           </Stack.Navigator>
         </NavigationContainer>
