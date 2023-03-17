@@ -4,7 +4,7 @@ import { List } from "react-native-paper";
 import { useAppSelector } from '../../hooks/useApp';
 import { selectSectionsByType } from '../../screens/Section/sectionsSlice';
 import { Screens } from "../../types/screens.enum";
-import { SectionTypes, SectionYears } from '../../types/sections.types';
+import { Section, SectionTypes, SectionYears } from '../../types/sections.types';
 import { StackNavigation } from '../../types/stackParamList';
 
 type ClassesListProps = {
@@ -15,13 +15,27 @@ const ClassesList = (classesListProps: ClassesListProps) => {
   const { navigation } = classesListProps;
   const classes = useAppSelector(state => selectSectionsByType(state, SectionTypes.class));
 
-  const generateClassesListByYear = (year: SectionYears): ReactElement[] => (
-    classes.filter(_class => _class.year === year).map(_class => (
+  const generateClassesListByYear = (year: SectionYears): ReactElement[] => {
+    const filterByYear = (_class: Section) => {
+      switch (year) {
+        case SectionYears.first:
+          return _class.name.charAt(0) === '1';
+        case SectionYears.second:
+          return _class.name.charAt(0) === '2';
+        case SectionYears.third:
+          return _class.name.charAt(0) === '3';
+        case SectionYears.fourth:
+          return _class.name.charAt(0) === '4';
+        case SectionYears.fifth:
+          return _class.name.charAt(0) === '5';
+      }
+    }
+    return classes.filter(_class => filterByYear(_class)).map(_class => (
       <List.Item title={_class.name}
-        onPress={() => navigation.navigate(Screens.Timetable, { id: _class.id })}
+        onPress={() => navigation.navigate(Screens.Timetable, { sectionId: _class.id })}
         key={_class.id} />
     ))
-  );
+  };
 
   return (
     <List.Section style={styles.listSection} title='Wybierz klasę'>

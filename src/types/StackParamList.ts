@@ -5,7 +5,7 @@ import { SectionTypes } from "./sections.types";
 export type StackParamList = {
   [Screens.Home]: undefined;
   [Screens.Sections]: { type: SectionTypes };
-  [Screens.Timetable]: { id: string };
+  [Screens.Timetable]: { sectionId: string };
 };
 
 export type StackNavigation = NativeStackNavigationProp<StackParamList>;
