@@ -1,9 +1,9 @@
-import { Sections } from "../types/sections.types";
+import { Section } from "../types/sections.types";
 import { request } from "../utils/api";
 
-export const sectionsGetAll = async (): Promise<Sections> => {
+export const sectionsGetAll = async (): Promise<Section[]> => {
   try {
-    const response = await request<Sections>(`/sections`, {
+    const response = await request<Section[]>(`/sections`, {
       method: "GET",
     });
     return response;

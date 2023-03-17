@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../utils/store";
-import { Section, Sections, SectionTypes } from "../../types/sections.types";
+import { Section, SectionTypes } from "../../types/sections.types";
 
 interface SectionsState {
-  sections: Sections;
+  sections: Section[];
 }
 
 export const sectionsSlice = createSlice({
@@ -13,7 +13,7 @@ export const sectionsSlice = createSlice({
     sections: [],
   } as SectionsState,
   reducers: {
-    set: (state, action: PayloadAction<Sections>) => {
+    set: (state, action: PayloadAction<Section[]>) => {
       return {
         ...state,
         sections: action.payload,

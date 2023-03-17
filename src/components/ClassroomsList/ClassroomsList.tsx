@@ -18,7 +18,7 @@ const ClassroomsList = (classroomsListProps: ClassroomsListProps) => {
   const generateClassroomsList = (): ReactElement[] => (
     classrooms.map(classroom => (
       <List.Item title={classroom.name}
-        onPress={() => navigation.navigate(Screens.Timetable, { id: classroom.id })}
+        onPress={() => navigation.navigate(Screens.Timetable, { sectionId: classroom.id })}
         key={classroom.id} />
     ))
   );
