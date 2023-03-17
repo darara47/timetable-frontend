@@ -17,7 +17,4 @@ export type Section = {
   name: string;
   url: string;
   type: SectionTypes;
-  year: SectionYears;
 };
-
-export type Sections = Section[];
