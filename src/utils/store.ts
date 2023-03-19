@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import sectionsReducer from "../screens/Section/sectionsSlice";
+import lessonsReducer from "../slices/lessonsSlice";
+import sectionsReducer from "../slices/sectionsSlice";
 
 export const store = configureStore({
   reducer: {
+    lessonsReducer,
     sectionsReducer,
   },
 });

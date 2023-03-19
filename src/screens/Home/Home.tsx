@@ -5,7 +5,7 @@ import { Screens } from '../../types/screens.enum';
 import { Button, Text } from 'react-native-paper';
 import { useAppDispatch } from '../../hooks/useApp';
 import { sectionsGetAll } from '../../services/sectionsService';
-import { set } from '../Section/sectionsSlice';
+import { setSections } from '../../slices/sectionsSlice';
 import { SectionTypes } from '../../types/sections.types';
 
 type HomeScreenProps = {
@@ -19,7 +19,7 @@ const HomeScreen = (homeScreenProps: HomeScreenProps): ReactElement => {
   useEffect(() => {
     const getSections = async () => {
       const sections = await sectionsGetAll();
-      dispatch(set(sections));
+      dispatch(setSections(sections));
     }
     getSections();
   }, []);
