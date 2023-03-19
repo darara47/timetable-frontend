@@ -1,8 +1,9 @@
 import { ReactElement } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { List } from "react-native-paper";
 import { useAppSelector } from '../../hooks/useApp';
 import { selectSectionsByType } from '../../slices/sectionsSlice';
+import { listStyles } from '../../styles/listStyles';
 import { Screens } from "../../types/screens.enum";
 import { Section, SectionTypes, SectionYears } from '../../types/sections.types';
 import { StackNavigation } from '../../types/stackParamList';
@@ -38,38 +39,29 @@ const ClassesList = (classesListProps: ClassesListProps) => {
   };
 
   return (
-    <List.Section style={styles.listSection} title='Wybierz klasę'>
+    <List.Section style={listStyles.listSection} title='Wybierz klasę'>
       <List.Accordion title="Pierwsza">
-        <ScrollView style={styles.scrollView}>
+        <ScrollView style={listStyles.scrollView}>
           {generateClassesListByYear(SectionYears.first)}
         </ScrollView>
       </List.Accordion>
       <List.Accordion title="Druga">
-        <ScrollView style={styles.scrollView}>
+        <ScrollView style={listStyles.scrollView}>
           {generateClassesListByYear(SectionYears.second)}
         </ScrollView>
       </List.Accordion>
       <List.Accordion title="Trzecia">
-        <ScrollView style={styles.scrollView}>
+        <ScrollView style={listStyles.scrollView}>
           {generateClassesListByYear(SectionYears.third)}
         </ScrollView>
       </List.Accordion>
       <List.Accordion title="Czwarta">
-        <ScrollView style={styles.scrollView}>
+        <ScrollView style={listStyles.scrollView}>
           {generateClassesListByYear(SectionYears.fourth)}
         </ScrollView>
       </List.Accordion>
     </List.Section>
   )
 }
-
-const styles = StyleSheet.create({
-  listSection: {
-    alignSelf: 'stretch',
-  },
-  scrollView: {
-    maxHeight: 308,
-  },
-});
 
 export default ClassesList;

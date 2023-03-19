@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
-import { StyleSheet } from 'react-native';
 import { List } from "react-native-paper";
 import { useAppSelector } from '../../hooks/useApp';
 import { selectSectionsByType } from '../../slices/sectionsSlice';
+import { listStyles } from '../../styles/listStyles';
 import { Screens } from "../../types/screens.enum";
 import { SectionTypes } from '../../types/sections.types';
 import { StackNavigation } from '../../types/stackParamList';
@@ -24,16 +24,10 @@ const ClassroomsList = (classroomsListProps: ClassroomsListProps) => {
   );
 
   return (
-    <List.Section style={styles.listSection} title='Wybierz salę'>
+    <List.Section style={listStyles.listSection} title='Wybierz salę'>
       {generateClassroomsList()}
     </List.Section>
   )
 }
-
-const styles = StyleSheet.create({
-  listSection: {
-    alignSelf: 'stretch',
-  }
-});
 
 export default ClassroomsList;
