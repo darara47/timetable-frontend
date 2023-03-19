@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../utils/store";
-import { Section, SectionTypes } from "../../types/sections.types";
+import { RootState } from "../utils/store";
+import { Section, SectionTypes } from "../types/sections.types";
 
 interface SectionsState {
   sections: Section[];
@@ -22,7 +22,7 @@ export const sectionsSlice = createSlice({
   },
 });
 
-export const { set } = sectionsSlice.actions;
+export const { set: setSections } = sectionsSlice.actions;
 
 export const selectSectionsByType = (
   state: RootState,

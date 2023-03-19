@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import { StyleSheet } from 'react-native';
 import { List } from "react-native-paper";
 import { useAppSelector } from '../../hooks/useApp';
-import { selectSectionsByType } from '../../screens/Section/sectionsSlice';
+import { selectSectionsByType } from '../../slices/sectionsSlice';
 import { Screens } from "../../types/screens.enum";
 import { SectionTypes } from '../../types/sections.types';
 import { StackNavigation } from '../../types/stackParamList';

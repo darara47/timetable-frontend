@@ -1,10 +1,10 @@
 import { ReactElement } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { Divider, List } from "react-native-paper";
+import { List } from "react-native-paper";
 import { useAppSelector } from '../../hooks/useApp';
-import { selectSectionsByType } from '../../screens/Section/sectionsSlice';
+import { selectSectionsByType } from '../../slices/sectionsSlice';
 import { Screens } from "../../types/screens.enum";
-import { Section, SectionTypes } from '../../types/sections.types';
+import { SectionTypes } from '../../types/sections.types';
 import { StackNavigation } from '../../types/stackParamList';
 
 type TeachersListProps = {
