@@ -1,7 +1,7 @@
 import axios, { RawAxiosRequestConfig, AxiosError } from "axios";
 
 const instance = axios.create({
-  baseURL: 'http://localhost:3020/',
+  baseURL: process.env.APP_API_URL,
 });
 
 export const request = async <Response,>(

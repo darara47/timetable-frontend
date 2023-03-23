@@ -7,7 +7,7 @@ export const homeScreenStyles = StyleSheet.create({
     padding: "15%",
   },
   buttonsContainer: {
-    marginTop: "50%",
+    marginTop: 100,
   },
   button: {
     marginHorizontal: "auto",
