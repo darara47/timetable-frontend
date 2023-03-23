@@ -4,26 +4,36 @@
     "slug": "timetable-frontend",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./src/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.darara47.timetablefrontend"
     },
     "web": {
       "favicon": "./src/assets/favicon.png"
     },
-    "platforms": ["web"]
+    "platforms": [
+      "web"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "18b32c32-3d4c-41e3-945e-c67e3d3eec2f"
+      }
+    }
   }
 }
