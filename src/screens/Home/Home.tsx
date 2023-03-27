@@ -7,7 +7,7 @@ import { useAppDispatch } from '../../hooks/useApp';
 import { sectionsGetAll } from '../../services/sectionsService';
 import { setSections } from '../../slices/sectionsSlice';
 import { SectionTypes } from '../../types/sections.types';
-import { homeScreenStyles } from '../../styles/HomeScreenStyles';
+import { homeScreenStyles } from '../../styles/homeScreenStyles';
 
 type HomeScreenProps = {
   navigation: StackNavigation,
