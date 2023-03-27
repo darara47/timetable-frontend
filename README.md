@@ -23,3 +23,4 @@ $ npm run web
 ```
 
 ### [Checkout app on expo here!](https://expo.dev/@darara47/timetable-frontend)
+
